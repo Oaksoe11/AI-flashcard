@@ -1,6 +1,7 @@
 # SmarterAI - AI-Powered Flashcard Generator
 
 SmarterAI is a modern web app that helps you generate smart flashcards instantly using AI. Enter a topic and let the app create a set of question-answer pairs to help you study better.
+Live link-https://ai-flashcard-topaz.vercel.app
 
 ## 🚀 Features
 - Generate flashcards using Gemini AI
