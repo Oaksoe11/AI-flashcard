@@ -1,5 +1,7 @@
 import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import {Suspense} from 'react';
 
 const outfit = Outfit({
   subsets: ["latin"], weight: ["400", "500", "600", "700"]
@@ -21,7 +23,10 @@ export default function RootLayout({ children }) {
         className={`${outfit.classname} ${ovo.className} antialiased 
         leading-8 overflow-x-hidden`}
       >
-        {children}
+        <Navbar/>
+        <Suspense fallback={<div>Loading...</div>}>
+       <main className="flex-grow">{children}</main>
+       </Suspense>
       </body>
     </html>
   );
