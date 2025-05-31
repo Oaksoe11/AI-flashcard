@@ -1,55 +1,31 @@
+'use client'
+
+import React from 'react'
+import { assets } from '@/assets/assets'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
 
 const Navbar = () => {
-        const sideMenuRef = useRef();
-    
-        const openMenu = () => {
-            sideMenuRef.current.style.transform = 'translateX(-16rem)';
-        }
-    
-        const closeMenu = () => {
-            sideMenuRef.current.style.transform = 'translateX(16rem)'
-        }
-    
-        const [isScroll, setIsScroll] = useState(false);
-        useEffect(() => {
-            window.addEventListener('scroll', () =>{
-                if(scrollY > 50){
-                    setIsScroll(true);
-                }else{
-                    setIsScroll(false);
-                }
-            })
-        },[])
-
   return (
-    <>
-      <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4
-      flex items-center justify-between z-50 ${isScroll ? "bg-pink-300 bg-opacity-50 backdrop-blur-lg shadow-sm": ""}`}>
-        <a href="#top">
-            {/* <Image src={assets.logo} 
-            alt='' className = 'w-20 cursor-pointer mr-14' /> */}
-            <h1 className="text-4xl font-bold text-gray-900 cursor-pointer bg-pink-50">
-
-            OakSoe<span className="text-red-400">.</span>
-            </h1>
+    <nav className="fixed top-0 left-0 w-full z-50 h-20 px-6 lg:px-12 bg-[#11001f] backdrop-blur-md border-b border-white/10 flex items-center justify-between text-white relative">
+      {/* Logo Left */}
+      <div className="z-10">
+        <a href="/">
+          <Image src={assets.logo} alt="SmarterAI Logo" width={250} height={250} />
         </a>
-        <ul className={`hidden md:flex items-center 
-        gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScroll ? "" : 
-            " bg-white shadow-sm bg-opacity-50"}`}>
-            <li><a href="#top">Home</a></li>
-            <li><a href="#about">About</a></li>
-            {/* <li><a href="#resume">Resume</a></li> */}
-            <li><a href="#projects">My Projects</a></li>
-            <li><a href="#contact">Contact me</a></li>
+      </div>
+
+      {/* Absolute centered nav links */}
+      <div className="absolute left-1/2 transform -translate-x-1/2">
+        <ul className="flex gap-10 text-lg font-medium">
+          <li>
+            <a href="/" className="hover:text-indigo-500 transition">About</a>
+          </li>
+          <li>
+            <a href="/generate" className="hover:text-indigo-500 transition">Begin</a>
+          </li>
         </ul>
-
-        {/* ########## mobile menu ########## */}
-
-        
-      </nav>
-    </>
+      </div>
+    </nav>
   )
 }
 
